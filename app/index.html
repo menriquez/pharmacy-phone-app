@@ -1,38 +1,99 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Great Books</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
-
     <script src="cordova.js"></script>
-    <script src="kendo/js/jquery.min.js"></script>
+    <!-- <script src="kendo/js/jquery.min.js"></script>  -->
+    <script src="kendo/js/jquery-2.2.1.min.js"></script> 
     <script src="kendo/js/kendo.mobile.min.js"></script>
-
     <script src="js/app.js"></script>
     <script src="js/details.js"></script>
     <script src="js/favorites.js"></script>
 </head>
+
 <body>
-    <div data-role="view" id="index">
-        <div data-role="header">
-            <div data-role="navbar">
-                <span data-role="view-title"></span>
-            </div>
-        </div>
+    <!-- define the main listview div for the landing page ------------- -->
+    <div data-role="view" data-title="Books" id="index">
         <ul data-role="listview" data-source="Books.data" data-template="books-template"></ul>
     </div>
-
+    <!-- define the main layout  --------------------------------------- -->
+    <div data-role="layout" data-id="main-layout">
+        <div data-role="header">
+            <div data-role="navbar">
+                <a href="#app-drawer" data-rel="drawer" data-role="button" data-align="left" data-icon="more">
+                </a>
+                <span data-role="view-title"></span>
+                <a href="views/settings.html" data-role="button" data-align="right" data-icon="settings"></a>
+            </div>
+        </div>
+    </div>
+    <!-- define the drawer --------------------------------------------- -->
+    <div data-role="drawer" id="app-drawer">
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title">Menu</span>
+            </div>
+        </div>
+        <ul data-role="listview">
+            <li><a href="#login" data-rel="modalview" data-icon="home">Login</a>
+            </li>
+            <li><a href="views/profiles.html" data-icon="favorites">Profiles</a>
+            </li>
+            <li><a href="#index" data-icon="home">Home</a>
+            </li>
+            <li><a href="views/favorites.html" data-icon="favorites">Favorites</a>
+            </li>
+            <li><a href="views/about.html" data-icon="globe">About</a>
+            </li>
+        </ul>
+    </div>
+    <!-- -------------------------------------------------------------- -->
+    <div data-role="layout" data-id="back-layout">
+        <div data-role="header">
+            <div data-role="navbar">
+                <a data-click="Books.back" data-role="button" data-align="left">
+                    < </a>
+                        <span data-role="view-title"></span>
+            </div>
+        </div>
+    </div>
     <script type="text/x-kendo-template" id="books-template">
         <a href="views/details.html?##id=#: isbn #">
-            <div class="bookImage"><img src="#: image_url #" /></div>
+            <div class="bookImage"><img src="#: image_url #" />
+            </div>
             <div class="bookTitle">#: name #</div>
             <div class="bookAuthor">#: author #</div>
         </a>
     </script>
-
-    <!-- Add Tutorial Markup Here -->
-
 </body>
+    
+<div data-role="modalview" id="login" style="width: 90%" data-model="loginView">
+    <div data-role="header">
+        <div data-role="navbar">
+            <span>Login</span>
+        </div>
+    </div>
+    <ul data-role="listview" data-style="inset">
+        <li>
+            <label>
+                UserId
+                <input type="text" data-bind="value: userid">
+            </label>
+        </li>
+        <li>
+            <label>
+                Password
+                <input type="password" data-bind="value: userpwd">
+            </label>
+        </li>
+    </ul>
+    <button data-bind="click: login" class="add-button" data-role="button">Login</button>
+    <button data-bind="click: close" class="close-button" data-role="button">Close</button>
+</div>
+
 </html>

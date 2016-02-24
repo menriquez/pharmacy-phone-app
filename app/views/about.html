@@ -1,4 +1,14 @@
-<div data-role="view" data-title="About Great Books" id="about">
-	<h3>It's like Amazon... for one very specific type of book.</h3>
-	<p>Great Books is the top source for random lists of exceptional programming resources, especially those resources focused on JavaScript, the coolest and most capable programming language around.</p>
+<!-- <div data-role="view" data-title="About" id="about" data-transition="fade">
+    <ul data-role="listview" data-source="About.data" data-template="about-template"></ul>
+    
+</div>  -->
+<div data-role="view" data-title="About" >
+    <div data-role="listview" data-title="About" id="about" data-source="About.data" data-template="about-template" data-transition="fade"></div>
 </div>
+
+<script type="text/x-kendo-template" data-source="About.data" id="about-template">
+    <div class="aboutImage"><img src="#: image_url #" />
+    </div>
+    <div class="aboutTitle">#: name #</div>
+    <div class="aboutInfo">#: info #</div>
+</script>

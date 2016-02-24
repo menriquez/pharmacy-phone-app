@@ -74,6 +74,24 @@ body {
   padding-left: 7.4em;
 }
 
+
+.aboutImage {
+    margin: 2em;
+ text-align: center;
+}
+
+.aboutTitle {
+    margin: 1em;
+  font-size: 2em;
+ text-align: center;
+}
+
+.aboutInfo {
+  font-size: 1.2em;
+  font-style: bold;
+  padding-left: 0.2em;
+}
+
 .bookImage img {
   width: 5em;
 }
