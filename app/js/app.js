@@ -36,6 +36,7 @@
     window.About = {
 
         data: new kendo.data.DataSource({
+            offlineStorage: "about-offline",
             transport: {
                 read: {
                     url: RESTurl + "about/" + appkey,
@@ -58,15 +59,39 @@
      window.Profiles = {
 
         data: new kendo.data.DataSource({
+            offlineStorage: "profiles-offline",
             transport: {
                 read: {
                     url: RESTurl + "profiles/" + appkey,
                     type: "GET",
-                    dataType: "json"
+                    dataType: "jsonp"
                 }
             },
             schema: {
-                data: "profile"
+                data: "profiles"
+            }
+        }),
+        back: function () {
+            app.navigate("#:back");
+        },
+        settings: function () {
+            app.navigate("views/settings.html");
+        }
+    };
+    
+     window.Scripts = {
+
+        data: new kendo.data.DataSource({
+            offlineStorage: "scripts-offline",
+            transport: {
+                read: {
+                    url: RESTurl + "patients/" + appkey,
+                    type: "GET",
+                    dataType: "jsonp"
+                }
+            },
+            schema: {
+                data: "scripts"
             }
         }),
         back: function () {
@@ -92,20 +117,23 @@
 
             var get_req = RESTurl + "login/" + this.userid + "/" + this.userpwd + "/" + appkey;
 
-
             $.ajax({
                 url: get_req,
-                dataType: 'JSON',
+                dataType: 'json',
                 success: function (data, status) {
                     $.each(data, function (key, value) {
                         //handle the data             
                     });
 
-                    var localData = JSON.stringify(data);
-                    //   console.log(localData);
-                    window.localStorage.setItem('profiles', localData);
-
-                    app.navigate("views/profiles.html");
+                    if (data,is_logged) {
+                        var localData = JSON.stringify(data);
+                        console.log(data);
+                        window.localStorage.setItem('is_logged', data.is_logged);
+                        app.navigate("views/profiles.html");
+                    }
+                    else {
+                        alert("Invalid Login. Please try again...");
+                    }
 
                 },
                 error: function (ts) {
