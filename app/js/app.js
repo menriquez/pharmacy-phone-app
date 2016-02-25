@@ -8,7 +8,7 @@
 
     var appkey = "1234567890QWERTYzxcvb";
 
-    var RESTurl = "https://e26a39e6.ngrok.io/templates/dev/api/";
+    var RESTurl = "https://e102605e.ngrok.io/templates/dev/api/";
 
     // var app.baseURL = "https://e26a39e6.ngrok.io/templates/dev/api/";
 
@@ -64,7 +64,7 @@
                 read: {
                     url: RESTurl + "profiles/" + appkey,
                     type: "GET",
-                    dataType: "jsonp"
+                    dataType: "json"
                 }
             },
             schema: {
@@ -87,7 +87,7 @@
                 read: {
                     url: RESTurl + "patients/" + appkey,
                     type: "GET",
-                    dataType: "jsonp"
+                    dataType: "json"
                 }
             },
             schema: {

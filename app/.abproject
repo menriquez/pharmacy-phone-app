@@ -3,7 +3,7 @@
   "ProjectGuid": "ee954a09-710f-4597-be53-e523a37106b6",
   "projectVersion": 1,
   "AppIdentifier": "com.telerik.PharmacyMobileApp",
-  "DisplayName": "Pharmacy Demo",
+  "DisplayName": "Pharmacy Demo Mobile",
   "Author": "flashmediasolutions",
   "Description": "Skeleton Branded Pharmacy Mobile App",
   "BundleVersion": "1.0",
@@ -13,7 +13,8 @@
     "2"
   ],
   "iOSBackgroundMode": [
-    "location"
+    "location",
+    "bluetooth-peripheral"
   ],
   "WP8TileTitle": "",
   "WP8Publisher": "",
@@ -77,5 +78,6 @@
   ],
   "Framework": "Cordova",
   "WP8WindowsPublisherName": "CN=Telerik",
-  "WP8PackageIdentityName": "1234Telerik.com.telerik.greatBooks"
+  "WP8PackageIdentityName": "1234Telerik.com.telerik.greatBooks",
+  "iOSDeploymentTarget": "7.0"
 }

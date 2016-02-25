@@ -1,11 +1,11 @@
-<div data-role="view" data-title="Profiles" id="profiles" >
-    <ul data-role="listview" data-source="Profiles.data" data-template="profiles-template"></ul>  
-</div> 
-
-<script type="text/x-kendo-template" id="profiles-template">
-    <a href="views/scripts.html"> 
-        <div class="bookTitle">#: Pharmacy_ID #</div>
-        <div class="bookAuthor">#: Patient_ID #</div>
-        <div class="bookAuthor">#: Patient_ID_Name #</div>
-    </a>
-</script>
+    <div data-role="view" data-title="Profiles" id="index">
+        <ul data-role="listview" data-source="Profiles.data" data-template="profile-template"></ul>
+    </div>
+	
+    <script type="text/x-kendo-template" id="profile-template">
+        <a href="views/scripts.html?##id=#: Pharmacy_ID #">
+            <div class="bookTitle">#: Patient_ID_Name #</div>				
+            <div class="bookTitle">#: Pharmacy_ID #</div>
+            <div class="bookTitle">#: Patient_ID #</div>
+        </a>
+    </script>
