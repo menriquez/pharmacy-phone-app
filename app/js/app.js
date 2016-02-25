@@ -125,7 +125,7 @@
                         //handle the data             
                     });
 
-                    if (data,is_logged) {
+                    if (data.is_logged) {
                         var localData = JSON.stringify(data);
                         console.log(data);
                         window.localStorage.setItem('is_logged', data.is_logged);

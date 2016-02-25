@@ -12,7 +12,9 @@
     "1",
     "2"
   ],
-  "iOSBackgroundMode": [],
+  "iOSBackgroundMode": [
+    "location"
+  ],
   "WP8TileTitle": "",
   "WP8Publisher": "",
   "WP8Capabilities": [],
