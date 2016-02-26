@@ -130,10 +130,11 @@
                         console.log(data);
                         window.localStorage.setItem('is_logged', data.is_logged);
                         
-                        about_ajax();
-                        
-                        
-                   /*     app.navigate("views/profiles.html");*/
+                        // about_ajax();
+                        $("#login").data("kendoMobileModalView").close();
+
+                        app.navigate("views/profiles.html");
+
                     }
                     else {
                         alert("Invalid Login. Please try again...");

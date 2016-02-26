@@ -37,7 +37,6 @@
     <Content Include="img\cordova.png" />
     <Content Include="img\logo.png" />
     <Content Include="index.html" />
-    <Content Include="js\about.js" />
     <Content Include="js\app.js" />
     <Content Include="js\details.js" />
     <Content Include="js\favorites.js" />
