@@ -87,7 +87,7 @@
                 read: {
                     url: RESTurl + "patients/" + appkey,
                     type: "GET",
-                    dataType: "json"
+                    dataType: "jsonp"
                 }
             },
             schema: {
@@ -129,7 +129,11 @@
                         var localData = JSON.stringify(data);
                         console.log(data);
                         window.localStorage.setItem('is_logged', data.is_logged);
-                        app.navigate("views/profiles.html");
+                        
+                        about_ajax();
+                        
+                        
+                   /*     app.navigate("views/profiles.html");*/
                     }
                     else {
                         alert("Invalid Login. Please try again...");
@@ -145,12 +149,31 @@
         },
 
         close: function () {
-
+ 
             $("#login").data("kendoMobileModalView").close();
             this.userid = "";
             this.userpwd = "";
         }
     });
+    
+    function about_ajax() {
+			$.ajax({
+                url: RESTurl + "about/" + appkey,
+                dataType: 'json',
+                success: function (data, status) {
+                    $.each(data, function (key, value) {
+                        
+                        console.log(key,value);
+                        //handle the data             
+                    });
+
+            
+                },
+                error: function (ts) {
+                    alert(ts.responseText)
+                }
+            });        
+    }
 
     document.addEventListener("deviceready", function () {
 
